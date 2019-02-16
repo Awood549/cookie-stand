@@ -14,19 +14,6 @@ var storeHours= [
     "6pm", "7pm", "8pm",
 ];
 
-function randCustNum(min,max){
-    var result= Math.random() * (max-min) + min;
-    console.log(result);
-    var final =Math.floor(result);
-    console.log(final);
-   return final;
-    }
-function multiply(a,b){
-var result = a*b;
-var final= Math.floor(result);
-return[final];
-}
-
 //Pike Stuff
 var pike ={
     minCust:23,
@@ -36,13 +23,24 @@ var pike ={
     cookiesPerHour:"",
     }
 
-pike.actualCust = randCustNum(pike.minCust,pike.maxCust);
-pike.cookiesPerHour = multiply(pike.actualCust,pike.avgCookies)[0];
+// pike.actualCust = randCustNum(pike.minCust,pike.maxCust);
+// pike.cookiesPerHour = multiply(pike.actualCust,pike.avgCookies)[0];
 console.log(pike);
 
 //creating a funtion to show cookies sold in a list.
 var render = function(){
     for(var i=0; i < storeHours.length; i++){
+        var min= pike.minCust;
+        var max= pike.maxCust;
+        console.log(max);
+        console.log(min);
+        var randCustNum = Math.random() * (max-min) + min;
+        var final =Math.floor(randCustNum);
+        pike.actualCust = final;
+        console.log(pike.actualCust);
+        var multResult = pike.actualCust * pike.avgCookies;
+        console.log(pike.avgCookies);
+        pike.cookiesPerHour = Math.floor(multResult);
         var liEl = document.createElement("li");
         liEl.textContent = `${storeHours[i]}: ${pike.cookiesPerHour} cookies sold.`;
         pikeUl.appendChild(liEl);
