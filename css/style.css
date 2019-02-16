@@ -1,0 +1,50 @@
+body{
+    background-color:salmon;
+
+}
+h1{
+    font-size:32px;
+}
+h2{
+    font-size:24px;
+}
+#pike{
+    border-style:dashed;
+    border-color:limegreen;
+    border-width: 2px;
+    width:180px;
+    background-color:slateblue;
+    padding:15px;
+}
+#airport{
+    border-style:dashed;
+    border-color:limegreen;
+    border-width: 2px;
+    width:180px;
+    background-color:slateblue;
+    padding:15px;
+}
+#center{
+    border-style:dashed;
+    border-color:limegreen;
+    border-width: 2px;
+    width:180px;
+    background-color:slateblue;
+    padding:15px;
+}
+#capHill{
+    border-style:dashed;
+    border-color:limegreen;
+    border-width: 2px;
+    width:180px;
+    background-color:slateblue;
+    padding:15px;
+}
+#alki{
+    border-style:dashed;
+    border-color:limegreen;
+    border-width: 2px;
+    width:180px;
+    background-color:slateblue;
+    padding:15px;
+}
