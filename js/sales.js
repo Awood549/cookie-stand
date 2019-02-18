@@ -6,6 +6,7 @@ var airportUl = document.getElementById("airport");
 var centerUl = document.getElementById("center");
 var capHillUl = document.getElementById("capHill");
 var alkiUl = document.getElementById("alki");
+var totalHolder = document.getElementById("totals");
 
 var cookieTotal= 0;
 var storeHours= [
@@ -16,26 +17,23 @@ var storeHours= [
     "6pm", "7pm", "8pm",
 ];
 
-for(var i = 0; i < storeHours.length; i++){
-    var table = document.createElement("td");
-    table.textContent = storeHours[i];
-    storeTimes.appendChild(table);
-}
 
-function Stores(minCust,maxCust,actualCust,avgCookies,list,cookiesPerHour) {
+function Stores(minCust,maxCust,actualCust,avgCookies,list,cookieTimeTotal,cookiesPerHour) {
     this.minCust = minCust;
     this.maxCust = maxCust;
     this.actualCust = actualCust;
     this.avgCookies = avgCookies;
     this.cookiesPerHour = cookiesPerHour;
     this.cookieData = [];
-    this.list = list
-    this.render = function(){
-        for(var i=0; i < storeHours.length; i++){
-            var min= this.minCust;
-            var max= this.maxCust;
+    this.list = list;
+    this.cookieTimeTotal = cookieTimeTotal;
+    
+    this.render = function() {
+        for (var i = 0; i < storeHours.length; i++){
+            var min = this.minCust;
+            var max = this.maxCust;
             var randCustNum = Math.random() * (max-min) + min;
-            var final =Math.floor(randCustNum);
+            var final = Math.floor(randCustNum);
             this.actualCust = final;
             var multResult = this.actualCust * this.avgCookies;
             this.cookiesPerHour = Math.floor(multResult);
@@ -44,8 +42,7 @@ function Stores(minCust,maxCust,actualCust,avgCookies,list,cookiesPerHour) {
             var liEl = document.createElement("td");
             liEl.textContent = this.cookiesPerHour;
             this.list.appendChild(liEl);
-    }
-    // liEl.textContent = `Total cookies sold: ${cookieTotal}.`
+        }
     }
 }
 
@@ -66,3 +63,9 @@ airport.render();
 center.render();
 capHill.render();
 alki.render();
+
+    for(var i = 0; i < storeHours.length; i++){
+        var table = document.createElement("td");
+        table.textContent = storeHours[i];
+        storeTimes.appendChild(table);
+    }
