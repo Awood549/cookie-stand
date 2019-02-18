@@ -1,4 +1,4 @@
-'use strict'
+    'use strict'
 
 var storeTimes = document.getElementById("storeTimes");
 var pikeUl =document.getElementById("pike");
@@ -17,17 +17,14 @@ var storeHours= [
     "6pm", "7pm", "8pm",
 ];
 
-
-function Stores(minCust,maxCust,actualCust,avgCookies,list,cookieTimeTotal,cookiesPerHour) {
+function Stores(minCust,maxCust,actualCust,avgCookies,list,cookieTotal,cookiesPerHour) {
     this.minCust = minCust;
     this.maxCust = maxCust;
     this.actualCust = actualCust;
     this.avgCookies = avgCookies;
     this.cookiesPerHour = cookiesPerHour;
-    this.cookieData = [];
+    this.cookieTotal = [];
     this.list = list;
-    this.cookieTimeTotal = cookieTimeTotal;
-    
     this.render = function() {
         for (var i = 0; i < storeHours.length; i++){
             var min = this.minCust;
@@ -37,14 +34,12 @@ function Stores(minCust,maxCust,actualCust,avgCookies,list,cookieTimeTotal,cooki
             this.actualCust = final;
             var multResult = this.actualCust * this.avgCookies;
             this.cookiesPerHour = Math.floor(multResult);
-            this.cookieData[i] = this.cookiesPerHour;
-            cookieTotal = this.cookiesPerHour + cookieTotal;
+            this.cookieTotal[i] =this.cookiesPerHour;
             var liEl = document.createElement("td");
             liEl.textContent = this.cookiesPerHour;
             this.list.appendChild(liEl);
         }
-    }
-}
+    }}
 
 //1st and pike
 var pike = new Stores(23,65,"",6.3,pikeUl);
@@ -64,8 +59,17 @@ center.render();
 capHill.render();
 alki.render();
 
-    for(var i = 0; i < storeHours.length; i++){
-        var table = document.createElement("td");
-        table.textContent = storeHours[i];
-        storeTimes.appendChild(table);
+for(var i = 0; i < storeHours.length; i++){
+    var table = document.createElement("td");
+    table.textContent = storeHours[i];
+    storeTimes.appendChild(table);
+}
+
+    for( var i = 0; i< storeHours.length; i++){
+        var timeTotal= pike.cookieTotal[i]+airport.cookieTotal[i] +
+        center.cookieTotal[i] + capHill.cookieTotal[i] + alki.cookieTotal[i];
+        console.log(timeTotal);
+        var tdEl = document.createElement("td");
+        tdEl.textContent = timeTotal;
+        totalHolder.appendChild(tdEl);
     }
