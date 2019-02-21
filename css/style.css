@@ -1,24 +1,36 @@
 body{
     background-color:salmon;
-
 }
+
 h1{
     font-size:32px;
 }
+
 h2{
     font-size:24px;
 }
+
 table{
     display:table;
     border:1px solid black;
 }
+
 tr{
     border:1px;
     display:table-row;
     border:1px solid black;
 }
+
 td{
     border:1px solid black;
+}
+
+#fish{
+    width:590px;
+}
+
+#Locations{
+    background-color:seagreen;
 }
 
 
