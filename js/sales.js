@@ -34,7 +34,7 @@ CookieStore.prototype.render = function(){
   this.calcCookiesPerHour();
 
   var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
+  var tdEl = document.createElement('th');
 
   tdEl.textContent = this.locationName;
   trEl.appendChild(tdEl);
@@ -56,12 +56,12 @@ function random (min,max) {
 }
 
 function makeFooterRow(){
-  var trEl = document.createElement('tfoot');
-  var tfEl = document.createElement('td');
-  tfEl.textContent = 'Hourly Totals';
-  trEl.appendChild(tfEl);
+  var trEl = document.createElement('tfoot'); //this creates a dom element
+  var tfEl = document.createElement('th');
+  tfEl.textContent = 'Hourly Totals'; //this assigns a value to the property tfEl
+  trEl.appendChild(tfEl); //this appends trEl to tfEl
 
-  for ( var i = 0; i < hours.length; i++){
+  for ( var i = 0; i < hours.length; i++){   
     var externalTotal=0;
     var tempTotal=0;
 
@@ -93,7 +93,7 @@ function makeHeaderRow(){
     trEl.appendChild(thEl);
   }
   thEl = document.createElement('th');
-  thEl.textContent = 'LocationTotals';
+  thEl.textContent = 'Location Totals';
   trEl.appendChild(thEl);
   table.appendChild(trEl);
 }
@@ -108,10 +108,36 @@ var alki = new CookieStore( 'Alki',2,16,4.6);
 var allShops = [pikePlace, seaTac, seattleCenter,
   capHill, alki];
   
-  (function renderTable() {
+  var storeForm = document.getElementById('store-form');
+  
+  function createNewStore(event){
+    event.preventDefault();
+    var loc= event.target.location.value;
+    var minimum= event.target.minimum.value;
+    var maximum= event.target.maximum.value;
+    var avgSales= event.target.avgSales.value;
+  
+    var newStore = new CookieStore(loc,minimum,maximum,avgSales);
+
+    //in case pat is a fool
+    if(isNaN(minimum)||isNaN(maximum)||isNaN(avgSales)||
+    minimum===""||maximum===""||avgSales===""){
+      alert("Sorry, make sure you're entering a correct value for each field");
+    }
+    else{
+      
+      allShops.push(newStore);
+      newStore.render();
+    }
+    }
+  
+  storeForm.addEventListener('submit',createNewStore);
+  
+  function renderTable() {
     makeHeaderRow();
     for( var i=0; i < allShops.length; i++){
       allShops[i].render();
     }
-  })();
+  }
+  renderTable();
   makeFooterRow();

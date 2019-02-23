@@ -12,73 +12,29 @@ h2{
 
 table{
     display:table;
-    border:1px solid black;
+    width:80%;
+    border-collapse:collapse;
 }
 
 tr{
     display:table-row;
-    border:1px solid black;
+    border:2px solid black;
 }
+
 th{
     border:1px solid black;
-    background-color:green;
+    background-color:seagreen;
 }
-tf{
-    border:1px solid black;
-    background-color:green;
+tfoot{
+    border:2px solid black;
+    background-color:seagreen;
 }
 
 td{
-    border:1px solid black;
+    border:2px solid black;
+    
 }
 
 #fish{
     width:590px;
 }
-
-#Locations{
-    background-color:seagreen;
-}
-
-
-
-/* #pike{
-    border-style:dashed;
-    border-color:limegreen;
-    border-width: 2px;
-    width:180px;
-    background-color:slateblue;
-    padding:15px;
-}
-#airport{
-    border-style:dashed;
-    border-color:limegreen;
-    border-width: 2px;
-    width:180px;
-    background-color:slateblue;
-    padding:15px;
-}
-#center{
-    border-style:dashed;
-    border-color:limegreen;
-    border-width: 2px;
-    width:180px;
-    background-color:slateblue;
-    padding:15px;
-}
-#capHill{
-    border-style:dashed;
-    border-color:limegreen;
-    border-width: 2px;
-    width:180px;
-    background-color:slateblue;
-    padding:15px;
-}
-#alki{
-    border-style:dashed;
-    border-color:limegreen;
-    border-width: 2px;
-    width:180px;
-    background-color:slateblue;
-    padding:15px;
-} */

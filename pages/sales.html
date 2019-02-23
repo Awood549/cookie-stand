@@ -9,6 +9,26 @@
 <body>
     <h1> Pat's Salmon Cookie Sales</h1>
     <img id="salmon" src="../img/salmon.png">
+    <form id="store-form">
+    <fieldset>
+        <legend>Input New Store Info Here!</legend>
+
+        <label for="location">Location Name:</label>
+        <input name="location" type="text"/>
+
+        <label for="minimum">Minimum Customers:</label>
+        <input name="minimum" type="text">
+
+        <label for="maximum">Maximum Customers:</label>
+        <input name="maximum" type="text">
+
+        <label for="avgSales"> Average Cookie Sales Per Customer:</label>
+        <input name="avgSales" type="text">
+
+        <button type="submit">Add Store</button>
+
+    </fieldset>
+    </form>
     <table id="sales-table"></table>
     <script src="../js/sales.js"></script>
     <p>Disclaimer: Plenty of salmon were hurt in the making of this page.</p>
