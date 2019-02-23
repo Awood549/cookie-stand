@@ -30,9 +30,10 @@ function CookieStore(locationName, minCust, maxCust, avgCookieSale) {
   // this.calcTotalHourlyCookies
 }
 
+var trEl = document.createElement('tr');
 CookieStore.prototype.render = function(){
   this.calcCookiesPerHour();
-
+  
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('th');
 
@@ -56,11 +57,12 @@ function random (min,max) {
 }
 
 function makeFooterRow(){
-  var trEl = document.createElement('tfoot'); //this creates a dom element
   var tfEl = document.createElement('th');
+  var trEl = document.createElement('tfoot'); //this creates a dom element
   tfEl.textContent = 'Hourly Totals'; //this assigns a value to the property tfEl
   trEl.appendChild(tfEl); //this appends trEl to tfEl
 
+var totalOfTotals = 0
   for ( var i = 0; i < hours.length; i++){   
     var externalTotal=0;
     var tempTotal=0;
@@ -70,13 +72,14 @@ function makeFooterRow(){
     }
    externalTotal= externalTotal + tempTotal;
    totalHourlyCookies.push(externalTotal);
-     tfEl = document.createElement('td');
-     tfEl.textContent = externalTotal;
-     trEl.appendChild(tfEl);
+   tfEl = document.createElement('td');
+   tfEl.textContent = externalTotal;
+   trEl.appendChild(tfEl);
+   totalOfTotals += externalTotal;
   }
  
-  tfEl = document.createElement('td');
-  tfEl.textContent = '';
+  tfEl = document.createElement('th');
+  tfEl.textContent = totalOfTotals;
   trEl.appendChild(tfEl);
   table.appendChild(trEl);
 }
@@ -125,9 +128,12 @@ var allShops = [pikePlace, seaTac, seattleCenter,
       alert("Sorry, make sure you're entering a correct value for each field");
     }
     else{
-      
       allShops.push(newStore);
+
+      var last = document.getElementById('sales-table').lastChild ;    
+      document.getElementById('sales-table').removeChild(last);
       newStore.render();
+      makeFooterRow();
     }
     }
   
