@@ -4,6 +4,7 @@ body{
 
 h1{
     font-size:32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h2{
@@ -23,11 +24,11 @@ tr{
 
 th{
     border:1px solid black;
-    background-color:seagreen;
+    background-color:blue;
 }
 tfoot{
     border:2px solid black;
-    background-color:seagreen;
+    background-color:blue;
 }
 
 td{
