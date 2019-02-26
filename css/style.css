@@ -1,6 +1,14 @@
+header{
+    background-color:grey;
+    width:100%;
+    margin: auto;
+    text-align: center;
+    height: 50px;
+}
 body{
     background-color:salmon;
 }
+
 
 h1{
     font-size:32px;
