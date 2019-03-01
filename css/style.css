@@ -1,5 +1,5 @@
 header{
-    background-color:grey;
+    background-color:blue;
     width:100%;
     margin: auto;
     text-align: center;
@@ -23,6 +23,7 @@ table{
     display:table;
     width:80%;
     border-collapse:collapse;
+    margin: 10px auto;
 }
 
 tr{
@@ -44,6 +45,10 @@ td{
     
 }
 
-#fish{
-    width:590px;
+.salmon{
+    width:800px;
+    margin-left: 25%;
+}
+p{
+    text-align: center;
 }
